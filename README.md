@@ -20,4 +20,11 @@ Course material for the MSc seminar at the University of Copenhagen (AØKK08448U
 
 ## Data
 
-`data/` contains ready-to-use CSVs built from the Survey of Professional Forecasters and real-time GDP-deflator vintages (Federal Reserve Bank of Philadelphia). See the data dictionary at the end of the notebook. Dataset construction follows Frydman & Tabor (2025), *INET Center on Knightian Uncertainty* working papers.
+`data/` contains ready-to-use CSVs; every notebook loads its data from here (or straight from this repository when run in Colab).
+
+| File | Contents | Source |
+|---|---|---|
+| `forecast_errors.csv` | SPF mean forecasts of one-year-ahead GDP-deflator inflation, first-release actuals, forecast errors and revisions, 1970Q1–2024Q2. | Survey of Professional Forecasters and real-time GDP-deflator vintages (Federal Reserve Bank of Philadelphia). Construction follows Frydman & Tabor (2025), *INET Center on Knightian Uncertainty* working papers; data dictionary at the end of notebook 01. Used in notebooks 01, 02, and 05. |
+| `inflation_quarterly.csv` | Quarterly US GDP-deflator inflation (first release), 1968Q4–2024Q2. | Same real-time vintages as above. Used in notebook 05. |
+| `phillips_curve.csv` | Quarterly US CPI inflation and the unemployment rate, 1960–2025. | FRED (CPIAUCSL, UNRATE). Used in notebook 03. |
+| `return_predictability.csv` | Annual US stock returns and the dividend–price ratio, 1927–2021. | Robert Shiller's long-run S&P dataset. Used in notebook 04. |
