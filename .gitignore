@@ -1,3 +1,8 @@
 .ipynb_checkpoints/
 __pycache__/
 .DS_Store
+# generated outputs of the Ox demos (regenerated on every run)
+ox/*.pdf
+ox/*.gwg
+ox/*.bak
+ox/*.out

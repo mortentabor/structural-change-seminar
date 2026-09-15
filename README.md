@@ -18,6 +18,17 @@ Course material for the MSc seminar at the University of Copenhagen (AØKK08448U
 
 **Just read it:** GitHub renders the notebook with all results — click the notebook link above (or use [nbviewer](https://nbviewer.org/github/mortentabor/structural-change-seminar/blob/main/notebooks/01-forecast-errors-first-look.ipynb) if GitHub's preview misbehaves).
 
+## Ox programs (Workshop 3)
+
+[`ox/`](ox/) holds the live demos from Workshop 3: the three methods for identifying structural change from the data — the Bai–Perron test, Autometrics with indicator saturation, and Markov switching — all run on simulated data with a planted break, so every method can be checked against a known truth. Requirements and run instructions are in [`ox/README.md`](ox/README.md); you need OxMetrics with PcGive (university license) and the OxRegimes package below.
+
+## Packages
+
+The structural-change toolkits behind the course, both open source:
+
+- [**OxRegimes**](https://github.com/knightianuncertainty/OxRegimes) — Ox/OxMetrics: Bai–Perron, indicator saturation with Autometrics, Markov switching, rolling/recursive estimation, forecasting under instability.
+- [**regimes**](https://github.com/knightianuncertainty/regimes) — the Python counterpart, built on statsmodels.
+
 ## Data
 
 `data/` contains ready-to-use CSVs; every notebook loads its data from here (or straight from this repository when run in Colab).
