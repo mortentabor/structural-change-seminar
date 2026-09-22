@@ -127,6 +127,19 @@ main()
     //   - only the intercept allowed to break: r.BaiPerron(5, 0.15, {{"break", {"Constant"}}});
     //   - a shorter sample, e.g. 1985(1)-2024(2). Do the breaks survive?
     // Which conclusions are robust to these choices, and which are not?
+    //
+    // CHECK, for the trimming: with 5% trimming (regimes of at least 11 quarters)
+    // BIC selects FIVE breaks at 1974(2), 1977(2), 1980(2), 1998(4), 2020(2).
+    // Compare with the saturation model's main shifts: 1974(2), 1977(4)-1978(2),
+    // 1980(3), 1997(3), 2020(1)-(2). Two methods that share no machinery agree on
+    // the same five turning points to within a quarter or two -- that is the
+    // strongest evidence in this exercise that the breaks are in the data, not in
+    // the method. The coefficients agree on the pattern (beta positive in the
+    // early 1970s, about zero or negative 1980-2020, positive after 2020) but not
+    // exactly in the 1970s: Bai-Perron forces alpha and beta to break together,
+    // SIS+MIS lets them break separately, which is also why it adds finer splits.
+    // One caveat: at 5% trimming the sequential test picks only 2 breaks (1974(2),
+    // 2020(1)); it is BIC that picks 5. The selection rule matters -- report both.
 
     // >>> YOUR CODE HERE
 
