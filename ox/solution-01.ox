@@ -27,8 +27,7 @@ main()
     decl sat = r.Saturation("SIS+MIS", 0.001, {{"label", "SIS+MIS"}});
     sat.Print();
 
-    println("
-==== E. estimates over time ====");
+    println("\n==== E. estimates over time ====");
     RgPlots::EstimatesOverTime({res0, bp, sat}, {}, {{"file", "exercise-01.pdf"}});
 
     delete r;
