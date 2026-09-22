@@ -122,7 +122,7 @@ main()
 
     // ---------------------------------------------------------------- step 7
     // YOUR TURN, for real. Change something and see what happens:
-    //   - a different trimming (0.10 or 0.20) or a different maximum number of breaks;
+    //   - a different trimming (0.05 or 0.10) or a different maximum number of breaks;
     //   - a different target for the saturation (0.01, 0.0001);
     //   - only the intercept allowed to break: r.BaiPerron(5, 0.15, {{"break", {"Constant"}}});
     //   - a shorter sample, e.g. 1985(1)-2024(2). Do the breaks survive?
