@@ -39,8 +39,13 @@ main()
 
 
     // ---------------------------------------------------------------- step 2
-    // Estimate the model with CONSTANT parameters and print it.
-    // Hint: r.Constant("a label").Print();
+    // Estimate the model with CONSTANT parameters, keep the result, and print it.
+    // Hint (two lines):  decl res0 = r.Constant("a label");
+    //                    res0.Print();
+    // Keep the result in a variable -- you need it for the plot in step 6. Do NOT
+    // write  decl res0 = r.Constant("...").Print();  -- Print() prints and returns
+    // nothing, so res0 would be empty and step 6 would fail with
+    // "member function call requires object".
     //
     // CHECK. You should get, over 1970(2)-2024(2), T = 216:
     //     Constant       -0.0247   (HACSE 0.1267)

@@ -13,7 +13,8 @@ main()
     r.SetSE("HAC");
 
     println("==== A. constant parameters ====");
-    r.Constant("Constant parameters").Print();
+    decl res0 = r.Constant("Constant parameters");   // keep the result for the plot
+    res0.Print();
 
     println("\n==== B. Chow at 1990(1) ====");
     r.Chow(1990, 1);
@@ -25,6 +26,10 @@ main()
     println("\n==== D. SIS+MIS at 0.1% ====");
     decl sat = r.Saturation("SIS+MIS", 0.001, {{"label", "SIS+MIS"}});
     sat.Print();
+
+    println("
+==== E. estimates over time ====");
+    RgPlots::EstimatesOverTime({res0, bp, sat}, {}, {{"file", "exercise-01.pdf"}});
 
     delete r;
 }
