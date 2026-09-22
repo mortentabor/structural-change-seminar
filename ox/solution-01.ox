@@ -22,8 +22,8 @@ main()
     decl bp = r.BaiPerron(5, 0.15, {{"label", "BP"}});
     r.GetModel("BP").PrintTests();
 
-    println("\n==== D. SIS+MIS at 1% ====");
-    decl sat = r.Saturation("SIS+MIS", 0.001, {{"merge", 2}, {"label", "SIS+MIS"}});
+    println("\n==== D. SIS+MIS at 0.1% ====");
+    decl sat = r.Saturation("SIS+MIS", 0.001, {{"label", "SIS+MIS"}});
     sat.Print();
 
     delete r;

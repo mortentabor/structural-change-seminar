@@ -63,8 +63,8 @@ main()
 
 
     // ---------------------------------------------------------------- step 4
-    // Now let the DATA choose the dates: Bai-Perron with at most 5 breaks and 15%
-    // trimming. Then print the test output.
+    // Now identify the breaks from the DATA: Bai-Perron with at most 5 breaks 
+    // and 15% trimming. Then print the test output.
     // Hint: decl bp = r.BaiPerron(5, 0.15, {{"label", "BP"}});
     //       r.GetModel("BP").PrintTests();
     //
@@ -85,18 +85,23 @@ main()
 
     // ---------------------------------------------------------------- step 5
     // The other approach: indicator saturation with Autometrics. Use SIS+MIS with a
-    // target of 0.1% (0.001) and merge indicators that end up adjacent.
-    // Hint: decl sat = r.Saturation("SIS+MIS", 0.001, {{"merge", 2}, {"label", "SIS+MIS"}});
+    // target of 0.1% (0.001).
+    // Hint: decl sat = r.Saturation("SIS+MIS", 0.001, {{"label", "SIS+MIS"}});
     //       sat.Print();
     //
     // CHECK. Many more (shorter) regimes than Bai-Perron -- and this is the point:
     // the coefficient on the revision is
-    //     ~0.69 in 1970(2)-1974(1),  -0.97 in 1974(2)-1977(3),
-    //     ~-0.11 (insignificant) for the long stretch 1977(4)-2020(1),
-    //     ~4.26 in 2020(2)-2021(3).
+    //     ~0.69 in 1970(2)-1974(1),  -0.95 in 1974(2)-1977(3),
+    //     ~1.58 for two quarters in 1977(4)-1978(1),
+    //     ~-0.13 (insignificant) for the long stretch 1978(2)-2020(1),
+    //     ~4.28 in 2020(2)-2021(3),  -0.82 in 2021(4)-2024(2).
     // So the "positive correlation between forecast errors and revisions" that a
     // large theoretical literature sets out to explain is a feature of two short
     // episodes -- not a constant of forecaster behavior.
+    // (Note the two-quarter regime in 1977-78 and the warning about HAC standard
+    // errors in very short regimes: the OLS column is the one to read there. A
+    // single-quarter shift is an outlier as much as a regime -- which is one reason
+    // to compare with Bai-Perron, whose trimming rules such regimes out.)
 
     // >>> YOUR CODE HERE
 
