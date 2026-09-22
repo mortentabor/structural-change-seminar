@@ -29,9 +29,11 @@ The natural experiment after class: change the break date, the sizes of the shif
 
 ## Guided exercise (Workshop 4)
 
+The Workshop 3 demos ran on simulated data. The exercise runs the same toolbox on the *real* course data — the forecast-error regression from notebook 02 — and you write the code yourself, one step at a time.
+
 | File | What it is |
 |---|---|
 | `exercise-01-your-turn.ox` | Fill-in-the-blanks version of the forecast-error regression with breaks: you write the code, the comments say what each step does and what the output should be, so you can check yourself. Uses `forecast-errors.in7`. |
-| `solution-01.ox` | The solved version — look after trying. |
+| `exercise-01-solution.ox` | The solved version: the same steps and comments with the code filled in, readable on its own. Look after trying. |
 | `import-data-template.ox` | Getting your own CSV (FRED, Philadelphia Fed, ECB) into a dated OxMetrics database. Two routes: through the interface, or in code. |
 | `forecast-errors.in7` / `.bn7` | The Workshop 1 dataset as an OxMetrics database (quarterly 1970Q1–2024Q2): `error_avg`, `revision_avg`, `F_avg`, `pi_avg`, `pi_lag`. |

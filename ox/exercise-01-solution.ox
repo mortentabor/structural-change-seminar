@@ -1,7 +1,5 @@
-/*  exercise-01-your-turn.ox -- guided exercise: the forecast-error regression with breaks.
-
-    You write the code; the comments tell you what each step should do and what the
-    output should look like, so you can check that you got it right.
+/*  exercise-01-solution.ox -- SOLUTION to exercise-01-your-turn.ox: the same steps and
+    comments, with the code filled in. Readable on its own; try the exercise first.
 
     The data: forecast-errors.in7 (in this folder) -- the Workshop 1 dataset as an
     OxMetrics database, quarterly 1970(1)-2024(2), with the variables
@@ -14,8 +12,7 @@
     Requirements: OxMetrics with PcGive, and the OxRegimes package (see README.md).
     Run: open in OxMetrics and press Ctrl+R (Model > Run).
 
-    Everywhere you see  // >>> YOUR CODE HERE  , write one or two lines.
-    The solution is in exercise-01-solution.ox -- look only after trying.
+    The CHECK blocks give the numbers the code below produces.
 */
 #include <oxstd.oxh>
 #import <packages/PcGive/pcgive_ects>
@@ -27,7 +24,8 @@ main()
     // Create a Regimes object and load the database forecast-errors.in7.
     // (Two lines: `decl r = new Regimes();` and `r.Load(...)`.)
 
-    // >>> YOUR CODE HERE
+    decl r = new Regimes();
+    r.Load("forecast-errors.in7");
 
 
     // ---------------------------------------------------------------- step 1
@@ -35,7 +33,9 @@ main()
     // Set the sample to 1970(2)-2024(2) and the standard errors to "HAC".
     // Hint: r.Model("...", {"Constant", "..."});  r.SetSample(y1,p1,y2,p2);  r.SetSE("HAC");
 
-    // >>> YOUR CODE HERE
+    r.Model("error_avg", {"Constant", "revision_avg"});
+    r.SetSample(1970, 2, 2024, 2);
+    r.SetSE("HAC");
 
 
     // ---------------------------------------------------------------- step 2
@@ -53,7 +53,8 @@ main()
     // This is the full-sample rejection of FIRE from Notebook 02: beta is positive
     // and significant. Look at the misspecification tests underneath as well.
 
-    // >>> YOUR CODE HERE
+    decl res0 = r.Constant("Constant parameters");   // keep the result: needed in step 6
+    res0.Print();
 
 
     // ---------------------------------------------------------------- step 3
@@ -64,7 +65,9 @@ main()
     // out of many. Try a couple of other dates before moving on. Which date would
     // you have guessed, and why?
 
-    // >>> YOUR CODE HERE
+    r.Chow(1990, 1);
+    r.Chow(1980, 3);                                 // two more dates, for comparison
+    r.Chow(2020, 1);
 
 
     // ---------------------------------------------------------------- step 4
@@ -85,7 +88,8 @@ main()
     // Note what that means: beta is NOT one number. Positive in the 1970s,
     // NEGATIVE in 1980-1998, positive again afterwards.
 
-    // >>> YOUR CODE HERE
+    decl bp = r.BaiPerron(5, 0.15, {{"label", "BP"}});
+    r.GetModel("BP").PrintTests();
 
 
     // ---------------------------------------------------------------- step 5
@@ -108,7 +112,8 @@ main()
     // single-quarter shift is an outlier as much as a regime -- which is one reason
     // to compare with Bai-Perron, whose trimming rules such regimes out.)
 
-    // >>> YOUR CODE HERE
+    decl sat = r.Saturation("SIS+MIS", 0.001, {{"label", "SIS+MIS"}});
+    sat.Print();
 
 
     // ---------------------------------------------------------------- step 6
@@ -117,7 +122,7 @@ main()
     // Hint: RgPlots::EstimatesOverTime({res0, bp, sat}, {}, {{"file", "exercise-01.pdf"}});
     //       (res0 is whatever you called the constant-parameter result in step 2.)
 
-    // >>> YOUR CODE HERE
+    RgPlots::EstimatesOverTime({res0, bp, sat}, {}, {{"file", "exercise-01.pdf"}});
 
 
     // ---------------------------------------------------------------- step 7
@@ -128,11 +133,15 @@ main()
     //   - a shorter sample, e.g. 1985(1)-2024(2). Do the breaks survive?
     // Which conclusions are robust to these choices, and which are not?
 
-    // >>> YOUR CODE HERE
+    // two of the variations, as examples -- add your own
+    r.BaiPerron(5, 0.10, {{"label", "BP 10% trimming"}});
+    r.GetModel("BP 10% trimming").PrintTests();
+    r.BaiPerron(5, 0.15, {{"break", {"Constant"}}, {"label", "BP intercept only"}});
+    r.GetModel("BP intercept only").PrintTests();
 
 
     // ---------------------------------------------------------------- step 8
     // Clean up: delete the Regimes object.
 
-    // >>> YOUR CODE HERE
+    delete r;
 }
