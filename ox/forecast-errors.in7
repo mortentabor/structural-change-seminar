@@ -1,0 +1,7 @@
+pcgive 700
+data forecast-errors.bn7
+>F_avg        1970  1 2024  2  4 32 forecast-err 22-09-2026 14:43:33
+>pi_avg       1970  1 2024  2  4 1808 forecast-err 22-09-2026 14:43:33
+>error_avg    1970  1 2024  2  4 3584 forecast-err 22-09-2026 14:43:33
+>revision_avg 1970  1 2024  2  4 5360 forecast-err 22-09-2026 14:43:33
+>pi_lag       1970  1 2024  2  4 7136 forecast-err 22-09-2026 14:43:33

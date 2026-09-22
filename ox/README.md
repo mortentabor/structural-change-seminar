@@ -26,3 +26,12 @@ The live demos from Workshop 3: three methods for identifying structural change 
 Open a script in OxMetrics and run it (Model → Run, or Ctrl+R) — output appears in the results window, figures in graphics windows. From the command line: `oxl demo-1-baiperron.ox` from this folder (with OxRegimes on `OX8PATH`, or via `oxl -i"<path to the folder containing OxRegimes>"`).
 
 The natural experiment after class: change the break date, the sizes of the shifts, or the noise in `demo-0-data.ox`, rerun it, and see which methods still find the break — and when they start to miss it.
+
+## Guided exercise (Workshop 4)
+
+| File | What it is |
+|---|---|
+| `exercise-01-your-turn.ox` | Fill-in-the-blanks version of the forecast-error regression with breaks: you write the code, the comments say what each step does and what the output should be, so you can check yourself. Uses `forecast-errors.in7`. |
+| `solution-01.ox` | The solved version — look after trying. |
+| `import-data-template.ox` | Getting your own CSV (FRED, Philadelphia Fed, ECB) into a dated OxMetrics database. Two routes: through the interface, or in code. |
+| `forecast-errors.in7` / `.bn7` | The Workshop 1 dataset as an OxMetrics database (quarterly 1970Q1–2024Q2): `error_avg`, `revision_avg`, `F_avg`, `pi_avg`, `pi_lag`. |
